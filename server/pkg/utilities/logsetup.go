@@ -7,7 +7,7 @@ import (
 
 // Assign all output to log file for application
 func AssignLogFile() {
-	errorFile, err := os.OpenFile("LogFile", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	errorFile, err := os.OpenFile("LogFile.log", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
 	if err != nil {
 		panic(err)
 	}

@@ -1,13 +1,11 @@
 package utilities
 
 import (
-	"log"
 	"sync"
 	"time"
 )
 
 var wg sync.WaitGroup
-var completed bool
 
 // Sleep for an hour
 func HourSleeper() {
@@ -41,10 +39,4 @@ func duration(year int, month time.Month, day, hour, min, sec, nsec int) time.Du
 
 	d := proposedTime.Sub(t)
 	return d
-}
-
-func timerCompletion() {
-	// defer wg.Done()
-	completed = true
-	log.Println("Timer has completed")
 }

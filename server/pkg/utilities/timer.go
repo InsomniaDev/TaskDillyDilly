@@ -1,13 +1,13 @@
 package utilities
 
 import (
-	"fmt"
+	"log"
 	"sync"
 	"time"
 )
 
 var wg sync.WaitGroup
-var ch chan bool
+var completed bool
 
 // Sleep for an hour
 func HourSleeper() {
@@ -25,18 +25,8 @@ func SecondSleeper() {
 }
 
 // Sleep until the provided time and return true when completed
-func SleepUntil(year int, month time.Month, day, hour, min, sec, nsec int) bool {
-	// TODO: Possibly change to passed in duration
-	d := duration(year, month, day, hour, min, sec, nsec)
-	time.AfterFunc(d, timerCompletion)
-	wg.Add(1)
-
-	go func() {
-		close(ch)
-		wg.Wait()
-	}()
-	x := <-ch
-	return x
+func SleepUntil(setTime time.Duration) {
+	time.Sleep(setTime)
 }
 
 // Possibly move to another package
@@ -55,6 +45,6 @@ func duration(year int, month time.Month, day, hour, min, sec, nsec int) time.Du
 
 func timerCompletion() {
 	// defer wg.Done()
-	fmt.Println("Timer has completed")
-	ch <- true
+	completed = true
+	log.Println("Timer has completed")
 }

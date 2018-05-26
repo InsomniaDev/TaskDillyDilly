@@ -1,3 +1,5 @@
+//+build unix
+
 package utilities
 
 import (
@@ -11,6 +13,8 @@ func AssignLogFile() {
 	if err != nil {
 		panic(err)
 	}
+
+	errorFile.Close()
 
 	syscall.Dup2(int(errorFile.Fd()), 1)
 	syscall.Dup2(int(errorFile.Fd()), 2)

@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+type Sleeper struct {
+	executionTime time.Duration
+}
+
 var wg sync.WaitGroup
 
 // Sleep for an hour
@@ -23,14 +27,13 @@ func SecondSleeper() {
 }
 
 // Sleep until the provided time and return true when completed
-func SleepUntil(setTime time.Duration) {
-	time.Sleep(setTime)
+func SleepUntil(s Sleeper) {
+	time.Sleep(s.executionTime)
 }
 
 // Possibly move to another package
-func duration(year int, month time.Month, day, hour, min, sec, nsec int) time.Duration {
+func SetSleeper(proposedTime time.Time) Sleeper {
 	t := time.Now()
-	proposedTime := time.Date(year, month, day, hour, min, sec, nsec, t.Location())
 
 	// Add another twenty four hours if the time has already passed
 	if t.After(proposedTime) {
@@ -38,5 +41,5 @@ func duration(year int, month time.Month, day, hour, min, sec, nsec int) time.Du
 	}
 
 	d := proposedTime.Sub(t)
-	return d
+	return Sleeper{d}
 }

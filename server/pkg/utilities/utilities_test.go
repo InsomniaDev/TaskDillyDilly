@@ -10,7 +10,7 @@ import (
 func TestSleepUntil(t *testing.T) {
 	t.Log("Starting a three second timer")
 	startTime := time.Now()
-	SleepUntil(time.Second * time.Duration(3))
+	SleepUntil(Sleeper{time.Duration(3 * time.Second)})
 	finishedTime := time.Now()
 
 	if (finishedTime.Second() - startTime.Second()) == 3 {
@@ -42,6 +42,18 @@ func TestAssignLogFile(t *testing.T) {
 		os.Remove(logFile)
 		t.Log("Deleted file")
 	}
+}
+
+func TestWorkerFile(t *testing.T) {
+	firstTime := time.Now().Add(time.Second * 1)
+	secondTime := time.Now().Add(time.Second * 3)
+
+	first := Worker{"firstWorker", ":", SetSleeper(firstTime)}
+	second := Worker{"secondWorker", ":", SetSleeper(secondTime)}
+
+	Enqueue(first, second)
+
+	StartProcessing()
 }
 
 // run using "go test -v"

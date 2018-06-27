@@ -6,6 +6,8 @@ import (
 	"syscall"
 )
 
+var logFile string
+
 // Assign all output to log file for application
 func AssignLogFile(file string) error {
 	errorFile, err := os.OpenFile(file, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)

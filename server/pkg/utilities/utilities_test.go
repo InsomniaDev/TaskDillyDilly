@@ -45,15 +45,38 @@ func TestAssignLogFile(t *testing.T) {
 }
 
 func TestWorkerFile(t *testing.T) {
+
+	expected := "Need to pass in value"
+	actual := Enqueue()
+	if actual.Error() != expected {
+		t.Errorf("Error actual = %v, and Expected = %v.", actual, expected)
+	}
+
 	firstTime := time.Now().Add(time.Second * 1)
 	secondTime := time.Now().Add(time.Second * 3)
 
-	first := Worker{"firstWorker", ":", SetSleeper(firstTime)}
-	second := Worker{"secondWorker", ":", SetSleeper(secondTime)}
+	first := Worker{"firstWorker", "echo firstWorker", SetSleeper(firstTime)}
+	second := Worker{"secondWorker", "echo secondWorker", SetSleeper(secondTime)}
 
 	Enqueue(first, second)
 
-	StartProcessing()
+	third := Worker{"thirdWorker", "echo thirdWorker", SetSleeper(firstTime)}
+	fourth := Worker{"fourthWorker", "echo fourthWorker", SetSleeper(secondTime)}
+
+	Enqueue(third, fourth)
+
+	fifth := Worker{"fifthWorker", "open {Enter File Here}", SetSleeper(secondTime)}
+	Enqueue(fifth)
+
+	errs := StartProcessing()
+	if errs != nil {
+		errorFromProcessing := <- errs
+		expected = "Test fifthWorker failed during execution"
+		if errorFromProcessing.Error() != expected {
+			t.Errorf("Error actual = %v, and Expected = %v.", actual, expected)
+		}
+	}
 }
 
 // run using "go test -v"
+// For test coverage use "go test -coverprofile fmt"

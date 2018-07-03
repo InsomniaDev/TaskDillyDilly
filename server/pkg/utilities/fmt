@@ -1,0 +1,20 @@
+mode: set
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:22.36,23.17 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:26.2,26.27 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:29.2,29.12 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:23.17,25.3 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:26.27,28.3 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:32.37,35.33 2 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:40.2,43.13 3 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:35.33,38.3 2 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:46.27,53.16 6 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:57.2,57.18 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/worker.go:53.16,56.3 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/logsetup.go:14.39,16.16 2 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/logsetup.go:20.2,26.12 6 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/logsetup.go:16.16,18.3 1 0
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/timer.go:15.22,17.2 1 0
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/timer.go:20.28,22.2 1 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/timer.go:25.49,29.27 2 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/timer.go:33.2,34.19 2 1
+_/Users/AdamMartin/Desktop/Playground/Task/server/pkg/utilities/timer.go:29.27,31.3 1 0

@@ -11,16 +11,6 @@ type Sleeper struct {
 
 var wg sync.WaitGroup
 
-// Sleep for an hour
-func HourSleeper() {
-	time.Sleep(time.Hour)
-}
-
-// Sleep for a minute
-func MinuteSleeper() {
-	time.Sleep(time.Minute)
-}
-
 // Sleep for a second
 func SecondSleeper() {
 	time.Sleep(time.Second)
